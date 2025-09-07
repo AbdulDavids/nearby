@@ -1,93 +1,87 @@
+html, body { height: 100%; }
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
   margin: 0;
-  padding: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #222;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f4f4f4;
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-}
-
-#user-location {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #666;
-}
-
-#loading-bar {
-  display: none;
-  width: 100%;
-  height: 4px;
+#map {
   position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #ccc;
-  z-index: 9999;
+  inset: 0;
 }
 
-#loading-bar::before {
-  content: '';
-  display: block;
-  width: 0;
-  height: 100%;
+.drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -6px 24px rgba(0,0,0,0.08);
+  height: 28vh;
+  max-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+.drawer.open { height: 55vh; }
+
+.drawer-toggle {
   position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #007bff;
-  animation: loading-bar-animation 2s linear infinite;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 22px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
 }
 
-@keyframes loading-bar-animation {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
+.search-row {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+}
+.search-row input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.search-row button {
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 6px;
+  padding: 0 10px;
+  font-size: 20px;
+  line-height: 34px;
 }
 
-.mosque-container {
-  background-color: #eee;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
+.status { padding: 0 10px 6px; color: #666; font-size: 0.9rem; }
 
-.mosque-container h3 {
-  margin: 0;
-  color: #333;
+.list {
+  overflow: auto;
+  padding: 0 6px 10px;
+  flex: 1;
 }
-
-.mosque-container p {
-  margin: 5px 0;
-  color: #666;
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 6px;
+  border-bottom: 1px solid #f0f0f0;
 }
+.item .name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item .meta { color: #666; font-size: 0.9rem; margin-left: 8px; min-width: 64px; text-align: right; }
+.item .actions { display: flex; gap: 8px; }
 
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 1.5rem;
-  text-decoration: none;
+button, .dir-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
 }
-
-a {
-  text-decoration: none;
-
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 10px;
-  }
-}
+.dir-btn { text-decoration: none; }

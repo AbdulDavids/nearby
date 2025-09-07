@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nearby Mosques</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" type="text/css" href="mosques.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Nearby Mosques</h1>
-    <p id="user-location"></p>
-    <div id="loading-bar"></div>
-    <div id="mosque-list"></div>
+  <div id="map" aria-label="Map"></div>
+
+  <!-- Drawer -->
+  <div id="drawer" class="drawer" aria-label="Nearby list">
+    <button id="drawerToggle" class="drawer-toggle" title="Toggle list" aria-label="Toggle list">▲</button>
+
+    <div class="search-row">
+      <input id="searchInput" type="text" placeholder="Search location" aria-label="Search location" />
+      <button id="searchBtn" title="Search" aria-label="Search">🔎</button>
+      <button id="recenterBtn" title="Recenter on me" aria-label="Recenter">🎯</button>
+    </div>
+
+    <div id="status" class="status" aria-live="polite"></div>
+
+    <div id="list" class="list" aria-label="Nearby mosques list"></div>
   </div>
-  
 
-
-
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="mosques.js"></script>
 </body>
 </html>
